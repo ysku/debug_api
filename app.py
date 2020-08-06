@@ -1,13 +1,10 @@
-from flask import Flask
-from flask import request
-from flask import jsonify
-
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
 def catch_all(path):
     headers = dict(request.headers)
     summary = {
